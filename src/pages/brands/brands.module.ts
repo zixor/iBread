@@ -10,4 +10,4 @@ import { BrandsPage } from './brands';
     IonicPageModule.forChild(BrandsPage),
   ],
 })
-export class BrandsPageModule {}
+export class ConversionfactorPageModule {}
