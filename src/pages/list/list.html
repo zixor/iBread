@@ -9,7 +9,19 @@
 
 <ion-content>
 
-  <ion-list>    
+  <ion-list>
+    <ion-header>
+      <ion-row>
+        <ion-col>Producto</ion-col>
+        <ion-col>Precio</ion-col>
+        <ion-col>Peso Bruto</ion-col>
+        <ion-col>Peso Neto</ion-col>
+        <ion-col>Unidad</ion-col>
+        <ion-col>Factor Corección</ion-col>
+        <ion-col>Costo X U. Real</ion-col>
+        <ion-col>Prueba</ion-col>
+      </ion-row>
+    </ion-header>
     <ion-item *ngFor="let item of items">
       <ion-grid>
         <ion-row>
