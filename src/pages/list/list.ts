@@ -1,31 +1,24 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { MarketPlaceList } from '../../models/marketplacelist.model';
 
 @Component({
   selector: 'page-list',
   templateUrl: 'list.html'
 })
 export class ListPage {
+
   selectedItem: any;
   icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
+  items: MarketPlaceList[] = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    // If we navigated to this page, we will have an item available as a nav param
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public alertCtrl: AlertController) {
+
     this.selectedItem = navParams.get('item');
 
-    // Let's populate this page with some filler content for funzies
-    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-    'american-football', 'boat', 'bluetooth', 'build'];
 
-    this.items = [];
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
   }
 
   itemTapped(event, item) {
@@ -33,5 +26,60 @@ export class ListPage {
     this.navCtrl.push(ListPage, {
       item: item
     });
+  }
+
+  add() {
+    let prompt = this.alertCtrl.create({
+      title: "Nuevo Producto",
+      inputs: [
+        {
+          type: 'string',
+          name: 'name',
+          placeholder: "Nombre"
+        },
+        {
+          type: 'number',
+          name: 'price',
+          placeholder: 'Precio'
+        },
+        {
+          type: 'text',
+          name: 'grossweight',
+          placeholder: 'Peso Bruto gr!'
+        },
+        {
+          type: 'text',
+          name: 'netweight',
+          placeholder: 'Peso Neto gr!'
+        },
+      ],
+      buttons: [
+        {
+          text: "Cancelar",
+          handler: data => { }
+        },
+        {
+          text: "Guardar",
+          handler: data => {
+            let currentPriceperunity: number = Number((data.price / data.grossweight).toFixed(2));
+            let currentCorrectionfactor = Number((data.grossweight / data.netweight).toFixed(2));
+            let currentPriceRealUnity = Number((currentPriceperunity / currentCorrectionfactor).toFixed(2));
+            let detail: MarketPlaceList = {
+              name: data.name,
+              price: data.price,
+              grossweight: data.grossweight,
+              netweight: data.netweight,
+              unity: "g",
+              priceperunity: currentPriceperunity,
+              correctionfactor: currentCorrectionfactor,
+              priceperrealunity: currentPriceRealUnity,
+              test: Number((data.netweight * currentPriceRealUnity).toFixed(2))
+            }
+            this.items.push(detail);
+          }
+        }
+      ]
+    });
+    prompt.present();
   }
 }

@@ -8,16 +8,50 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-start></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-end>
-        {{item.note}}
-      </div>
-    </button>
+
+  <ion-list>    
+    <ion-item *ngFor="let item of items">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <h2 item-left><b> {{item.name}} </b> </h2>
+          </ion-col>
+          <ion-col>
+            <h2 item-left><b> {{item.price | currency: 'USD': true }} </b> </h2>
+          </ion-col>
+          <ion-col>
+            <h2 item-left><b> {{item.grossweight}} </b> </h2>
+          </ion-col>
+          <ion-col>
+            <h2 item-left><b> {{item.netweight}} </b> </h2>
+          </ion-col>
+          <ion-col>
+            <h2 item-left><b> {{item.unity}} </b> </h2>
+          </ion-col>
+          <ion-col>
+            <h2 item-left><b> {{item.priceperunity}} </b> </h2>
+          </ion-col>
+          <ion-col>
+            <h2 item-left><b> {{item.correctionfactor}} </b> </h2>
+          </ion-col>
+          <ion-col>
+            <h2 item-left><b> {{item.priceperrealunity}} </b> </h2>
+          </ion-col>
+          <ion-col>
+            <h2 item-right><em> {{ item.test | currency: 'USD': true }} </em></h2>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
   </ion-list>
+
+  <br>
+  <ion-fab right bottom>
+    <button ion-fab color="warning" (click)="add()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
   <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
+    You navigated here from <b>{{selectedItem.name}}</b>
   </div>
 </ion-content>
