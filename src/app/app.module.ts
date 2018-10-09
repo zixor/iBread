@@ -8,26 +8,26 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { ListproductsPage } from '../pages/listproducts/listproducts';
 import { ProvidersPage } from '../pages/providers/providers';
 import { BrandsPage } from '../pages/brands/brands';
 import { InventoryPage } from '../pages/inventory/inventory';
 import { ConversionfactorPage } from '../pages/conversionfactor/conversionfactor';
 import { ProductPage } from '../pages/product/product';
 import { AboutPage } from '../pages/about/about';
+import { ListProductsPage } from '../pages/list-products/list-products';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage,
-    ListproductsPage,
     ProvidersPage,
     BrandsPage,
     InventoryPage,
     ConversionfactorPage,
     ProductPage,
-    AboutPage
+    AboutPage,
+    ListProductsPage
   ],
   imports: [
     BrowserModule,
@@ -38,13 +38,13 @@ import { AboutPage } from '../pages/about/about';
     MyApp,
     HomePage,
     ListPage,
-    ListproductsPage,
     ProvidersPage,
     BrandsPage,
     InventoryPage,
     ConversionfactorPage,
     ProductPage,
-    AboutPage
+    AboutPage,
+    ListProductsPage
   ],
   providers: [
     StatusBar,

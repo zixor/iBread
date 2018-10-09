@@ -8,8 +8,9 @@ import { ListPage } from '../pages/list/list';
 import { InventoryPage } from '../pages/inventory/inventory';
 import { ProvidersPage } from '../pages/providers/providers';
 import { BrandsPage } from '../pages/brands/brands';
-import { ListproductsPage } from '../pages/listproducts/listproducts';
 import { AboutPage } from '../pages/about/about';
+import { ProductPage } from '../pages/product/product';
+import { ListProductsPage } from '../pages/list-products/list-products';
 
 @Component({
   templateUrl: 'app.html'
@@ -28,10 +29,10 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'Lista Mercado', component: ListPage },
+      { title: 'Productos', component: ListProductsPage },
       { title: 'Inventario', component: InventoryPage },
       { title: 'Proveedores', component: ProvidersPage },
       { title: 'Marcas', component: BrandsPage },
-      { title: 'Productos', component: ListproductsPage },
       { title: 'About', component: AboutPage }
     ];
 

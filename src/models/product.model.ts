@@ -1,10 +1,10 @@
-import { Provider } from "./provider.model";
-import { Brand } from "./brand.model";
+import { Ingredient } from "./Ingredient";
 
-
-export interface Ingredient {
+export interface Product {
   id?:number;
   name:string;
-  provider:Provider;
-  brand:Brand;
+  portions:number;
+  portionweight:number;
+  saleprice:number;
+  ingredientList:Ingredient[];
 }

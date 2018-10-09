@@ -1,6 +1,6 @@
 
 import { Brand } from "./brand.model";
-import { Ingredient } from "./product.model";
+import { Ingredient } from "./Ingredient";
 
 export interface Inventory {
   id?:number;

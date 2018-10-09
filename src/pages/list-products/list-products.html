@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar color="header">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title style="text-align:center;">
+      Lista de Productos
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)=onExport();>
+        <ion-icon name="md-mail"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)=doFilter();>
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher (ionRefresh)="doRefresh($event);" class="refresher">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list *ngIf="expense">
+
+    <ion-item-sliding *ngFor="let product of products">
+      <ion-item (click)="onItemClick(product);">
+
+        <h2 item-center>{{product.name}}</h2>
+        <p item-right>{{product.portions}} Personas</p>
+        <p item-right>{{product.portionweight}} grs</p>
+        <h2 item-center>{{product.saleprice | currency: 'USD': true }}</h2>
+
+      </ion-item>
+      <ion-item-options>
+        <button ion-button color="danger" icon-left (click)="onTrash(product);">
+          <ion-icon name="trash"></ion-icon>
+
+        </button>
+        <button ion-button color="add-item" icon-left (click)="onShareWhatsApp(product);">
+          <ion-icon name="logo-whatsapp"></ion-icon>
+
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+
+  <br>
+  <ion-fab right bottom>
+    <button ion-fab color="add-item" (click)="onAddClick()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>
