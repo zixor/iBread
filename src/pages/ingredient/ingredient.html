@@ -1,0 +1,22 @@
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-3>
+        <button ion-fab color="gray" item-left style="box-shadow:none;">
+          <ion-icon name="md-nutrition"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <ion-item item-center>
+          <ion-input type="text" placeholder="Seleccione ingrediente" required readonly></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-item>
+    <ion-label color="primary" floating>Cantidad Porción grs</ion-label>
+    <ion-input type="number" name="quantity"></ion-input>
+  </ion-item>
+  <div style="height: 30px;"></div>
+  <button ion-button block (click)="add();">Adicionar</button>
+</ion-content>

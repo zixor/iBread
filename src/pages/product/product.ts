@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Product } from '../../models/product.model';
+import { IngredientPage } from '../ingredient/ingredient';
 
 @IonicPage()
 @Component({
@@ -11,9 +12,11 @@ export class ProductPage {
 
   product: Product = {
     name: "",
-    portions: 0,
-    portionweight: 0,
-    saleprice: 0,
+    portions: null,
+    portionweight: null,
+    saleprice: null,
+    margin:null,
+    utility:null,
     ingredientList: [
       {
         name: "dada",
@@ -26,25 +29,25 @@ export class ProductPage {
   };
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProductPage');
   }
 
-  onItemClick(){
-
+  onItemClick() {
+    this.navCtrl.push(IngredientPage);
   }
 
-  onTrash(){}
+  onTrash() { }
 
-  onSave(){}
+  onSave() { }
 
-  minusClick(){}
+  minusClick() { }
 
-  plusClick(){}
+  plusClick() { }
 
-  addIngredient(){}
+  addIngredient() { }
 
 }

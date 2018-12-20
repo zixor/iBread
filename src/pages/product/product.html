@@ -1,106 +1,24 @@
-<ion-header>
-  <ion-navbar color="header">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title style="text-align:center;">{{product.name || 'Nuevo Producto' }} </ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="onTrash()" *ngIf="product.id">
-        <ion-icon name="trash"></ion-icon>
-      </button>
-      <button ion-button icon-only (click)="onSave()" [disabled]="!f.valid">
-        <ion-icon name="checkmark"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-navbar>
-</ion-header>
-
 <ion-content padding>
-  <form #f="ngForm">
-
-    <ion-item>
-      <ion-label color="primary" floating>Nombre: </ion-label>
-      <ion-input type="string" [(ngModel)]="product.name" name="name"></ion-input>
-    </ion-item>
-
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <button ion-fab mini color="add-item" (click)="minusClick()">
-            <ion-icon name="remove"></ion-icon>
-          </button>
-        </ion-col>
-        <ion-col>
-          <ion-label color="primary" name="portions">
-            <p>Porciones: {{product.portions}}</p>
-          </ion-label>
-        </ion-col>
-        <ion-col>
-          <button ion-fab mini color="add-item" (click)="plusClick()">
-            <ion-icon name="add"></ion-icon>
-          </button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-
-    <ion-item>
-      <ion-label color="primary" floating>Peso Porción grs:</ion-label>
-      <ion-input type="number" [(ngModel)]="product.portionweight" name="weight"></ion-input>
-    </ion-item>
-
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <ion-label color="primary">Ingrediente: </ion-label>
-        </ion-col>
-        <ion-col>
-          <ion-fab>
-            <button ion-fab mini color="add-item" (click)="addIngredient();">
-              <ion-icon name="add"></ion-icon>
-            </button>
-          </ion-fab>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-
-    <br>
-    <br>
-
-    <ion-item>
-      <ion-list *ngIf="product.ingredientList">
-
-        <ion-header>
-          <ion-row>
-            <ion-col>Ingrediente</ion-col>
-            <ion-col>Cant/Porción</ion-col>
-            <ion-col>Cant. Total</ion-col>
-            <ion-col>Unidad</ion-col>
-            <ion-col>Porción</ion-col>
-            <ion-col>Total</ion-col>
-          </ion-row>
-        </ion-header>
-
-        <ion-item-sliding *ngFor="let ingredient of product.ingredientList">
-
-          <ion-row (click)="onItemClick(ingredient);">
-            <ion-col>{{ingredient.name}}</ion-col>
-            <ion-col>{{ingredient.portionquantity}}</ion-col>
-            <ion-col>{{ingredient.totalquantity}}</ion-col>
-            <ion-col>grs</ion-col>
-            <ion-col>{{product.portion}}</ion-col>
-            <ion-col>{{product.total}}</ion-col>
-          </ion-row>
-
-          <ion-item-options>
-            <button ion-button color="danger" icon-left (click)="onTrash();">
-              <ion-icon name="trash"></ion-icon>
-            </button>
-          </ion-item-options>
-        </ion-item-sliding>
-
-      </ion-list>
-    </ion-item>
-
-  </form>
-
+  <ion-item>
+    <ion-label color="primary" item-width="30%" floating>Nombre</ion-label>
+    <ion-input type="string" [(ngModel)]="product.name" name="name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="primary" item-width="30%" floating>Porciones</ion-label>
+    <ion-input type="number" [(ngModel)]="product.portions" name="portions"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="primary" item-width="30%" floating>Peso Porción grs</ion-label>
+    <ion-input type="number" [(ngModel)]="product.portionweight" name="weight"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="primary" item-width="30%" floating>Margen (%)</ion-label>
+    <ion-input type="number" [(ngModel)]="product.margin" name="margin"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="primary" item-width="30%" floating>Utilidad Bruta (%)</ion-label>
+    <ion-input type="number" [(ngModel)]="product.utility" name="utility"></ion-input>
+  </ion-item>
+  <div style="height: 30px;"></div>
+  <button block ion-button (click)="onItemClick();">Adicionar Ingredientes</button>
 </ion-content>

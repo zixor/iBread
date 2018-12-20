@@ -11,6 +11,7 @@ import { BrandsPage } from '../pages/brands/brands';
 import { AboutPage } from '../pages/about/about';
 import { ProductPage } from '../pages/product/product';
 import { ListProductsPage } from '../pages/list-products/list-products';
+import { ProducttabsPage } from '../pages/producttabs/producttabs';
 
 @Component({
   templateUrl: 'app.html'
@@ -29,7 +30,7 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'Lista Mercado', component: ListPage },
-      { title: 'Productos', component: ListProductsPage },
+      { title: 'Productos', component: ProducttabsPage },
       { title: 'Inventario', component: InventoryPage },
       { title: 'Proveedores', component: ProvidersPage },
       { title: 'Marcas', component: BrandsPage },
