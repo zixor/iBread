@@ -15,6 +15,8 @@ import { ConversionfactorPage } from '../pages/conversionfactor/conversionfactor
 import { ProductPage } from '../pages/product/product';
 import { AboutPage } from '../pages/about/about';
 import { ListProductsPage } from '../pages/list-products/list-products';
+import { ProducttabsPage } from '../pages/producttabs/producttabs';
+import { IngredientPage } from '../pages/ingredient/ingredient';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ListProductsPage } from '../pages/list-products/list-products';
     ConversionfactorPage,
     ProductPage,
     AboutPage,
-    ListProductsPage
+    ListProductsPage,
+    ProducttabsPage,
+    IngredientPage
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,9 @@ import { ListProductsPage } from '../pages/list-products/list-products';
     ConversionfactorPage,
     ProductPage,
     AboutPage,
-    ListProductsPage
+    ListProductsPage,
+    ProducttabsPage,
+    IngredientPage
   ],
   providers: [
     StatusBar,
